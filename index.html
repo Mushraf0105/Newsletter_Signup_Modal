@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Newsletter Signup Modal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Main Webpage Content -->
+  <main class="page-container">
+
+
+    <section class="hero">
+      <div class="badge">WEEKLY TECH DIGEST</div>
+      <h1>Stay Ahead of the Latest in <span class="gradient-text">Web Development</span></h1>
+      <p>
+        Explore curated engineering tutorials, modern framework tips, and cutting-edge web architecture breakdowns delivered every week.
+      </p>
+
+      <div class="hero-actions">
+        <button id="triggerModalHero" class="btn btn-primary">Subscribe to Newsletter</button>
+        <button id="resetStorageBtn" class="btn btn-secondary">Reset Modal (Re-test Delay)</button>
+      </div>
+
+      <div id="statusNotice" class="status-notice">
+        Modal will pop up in <span id="timerCountdown">3</span> seconds...
+      </div>
+    </section>
+  </main>
+
+  <!-- Popup Modal Overlay -->
+  <div id="modalOverlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <!-- Close Button -->
+      <button id="closeModalBtn" class="close-btn" aria-label="Close modal">&times;</button>
+
+      <!-- Modal Content (Form View) -->
+      <div id="modalFormView">
+        <div class="modal-icon" aria-hidden="true">📬</div>
+        <h2 id="modalTitle">Join Our Newsletter</h2>
+        <p class="modal-subtitle">
+          Subscribe today and get our free <em>"Modern JavaScript Cheat Sheet"</em> sent directly to your inbox.
+        </p>
+
+        <form id="newsletterForm" novalidate>
+          <div class="form-group">
+            <input 
+              type="email" 
+              id="emailInput" 
+              placeholder="Enter your email address" 
+              required
+              autocomplete="email"
+              aria-describedby="errorMessage"
+            >
+            <p id="errorMessage" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn btn-submit">
+            Subscribe Now
+          </button>
+        </form>
+
+        <p class="modal-note">No spam ever. Unsubscribe at any time with one click.</p>
+      </div>
+
+      <!-- Modal Success View (After Successful Signup) -->
+      <div id="modalSuccessView" class="success-view hidden" aria-live="polite">
+        <div class="success-icon" aria-hidden="true">🎉</div>
+        <h2>Thank You for Subscribing!</h2>
+        <p>We've sent a confirmation link to <strong id="userEmailDisplay"></strong>.</p>
+        <button id="successCloseBtn" class="btn btn-primary">Back to Website</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
